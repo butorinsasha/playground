@@ -8,15 +8,19 @@ public class CoinSum {
     private static File writeToCsvFile(String filename, int[][] res) throws IOException {
         File outputFile = File.createTempFile(filename, ".csv", new File(".\\target\\classes\\coinsum\\"));
 //        File outputFile = new File("C:\\Users\\butorin\\Documents\\work\\qa\\coinsum\\res\\coinsum.csv");
-        PrintWriter print = new PrintWriter(
+        PrintWriter printWriter = new PrintWriter(
                 new BufferedWriter(
                         new FileWriter(outputFile)));
         System.out.println("res.length = " + res.length);
+
+//        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(outputFile));
+//        bufferedWriter. // see what can do
+
         for (int i = 0; i < res.length; i++) {
-            print.println(res[i][0] + "," + res[i][1]);
+            printWriter.println(res[i][0] + "," + res[i][1]);
         }
 
-        print.close();
+        printWriter.close();
         return outputFile;
     }
 
